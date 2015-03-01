@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+    <!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>My AngularJS App</title>
+
+        <!-- Boilerplate -->
+        <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+        <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+
+        <!-- Twitter Bootstrap -->
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Material Design for Bootstrap -->
+        <link href="bower_components/bootstrap-material-design/dist/css/material-wfont.min.css" rel="stylesheet">
+        <link href="bower_components/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet">
+
+        <!-- Custom -->
+        <link rel="stylesheet" href="assets/css/app.css">
+
+        <!-- Modernizer -->
+        <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+
+        <!-- jQuery -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    </head>
+
+    <body>
+
+
+        <div class="header-panel shadow-z-2">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <h1>Project Zero</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid main">
+
+            <div class="row">
+
+                <nav class="col-xs-2 menu">
+                    <ul>
+                        <li class="active withripple"><a href="#/view1">View 1</a></li>
+                        <li class="withripple"><a href="#/view2">View 2</a></li>
+                    </ul>
+                </nav>
+
+                <div class="col-xs-10 pages ">
+                    <div class="col-xs-11">
+
+                        <div class="active well page" id="input">
+                            <div class="inputs" style="min-height: 1500px">
+
+                                <div ng-view></div>
+
+                            </div>
+                        </div>
+
+                        <!--
+                        <div class="col-xs-1 icons-material">
+                            <div class="active icon-preview">
+                                <i class="mdi-navigation-check btn-lg"></i>
+                            </div>
+                        </div>
+                        -->
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Magic -->
+        <script>
+            window.page = window.location.hash || "#view1";
+
+            $(window).on("resize", function() {
+                $("html, body").height($(window).height());
+                $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight());
+                $(".pages").height($(window).height());
+            }).trigger("resize");
+
+        </script>
+
+        <!-- Angular App -->
+        <!-- In production use: <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>  -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="assets/js/app.js"></script>
+        <script src="partial/view1/view1.js"></script>
+        <script src="partial/view2/view2.js"></script>
+
+        <!-- Twitter Bootstrap -->
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- Material Design for Bootstrap -->
+        <script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+        <script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
+        <script> $.material.init(); </script>
+
+    </body>
+
+</html>
